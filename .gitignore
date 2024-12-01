@@ -1,0 +1,24 @@
+# .gitignore
+
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Logs
+logs/
+*.log
+
+# Environment Variables
+.env
+
+# Dependency directories
+vendor/
+
+# OS files
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/

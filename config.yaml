@@ -1,0 +1,64 @@
+# config.yaml
+
+environment: development
+
+server:
+  host: "0.0.0.0"
+  port: 8080
+  read_timeout: "15s"
+  write_timeout: "15s"
+  idle_timeout: "60s"
+
+database:
+  type: "postgres"
+  postgres:
+    host: "db"  # Service name in docker-compose
+    port: 5432
+    user: "postgres_user"
+    password: "securepassword"
+    dbname: "crypto_exchange_db"
+    sslmode: "disable"
+
+logging:
+  level: "debug"
+  format: "console"
+  output_paths:
+    - "stdout"
+    - "logs/app.log"
+
+jwt:
+  secret_key: "supersecretkey"
+  token_duration: "24h"
+
+api_keys:
+  crypto_api:
+    key: "your_crypto_api_key"
+    secret: "your_crypto_api_secret"
+
+external_services:
+  payment_gateway:
+    base_url: "https://api.paymentgateway.com"
+    api_key: "payment_gateway_api_key"
+  exchange_rate_service:
+    base_url: "https://api.exchangerateapi.com"
+    api_key: "exchange_rate_api_key"
+
+redis:
+  host: "redis"
+  port: 6379
+  password: ""
+  db: 0
+
+cassandra:
+  host: "cassandra"
+  port: 9042
+  keyspace: "crypto_exchange"
+
+kafka:
+  brokers:
+    - "kafka:9092"
+  topic: "transactions"
+
+features:
+  enable_new_feature_x: true
+  enable_logging: true
